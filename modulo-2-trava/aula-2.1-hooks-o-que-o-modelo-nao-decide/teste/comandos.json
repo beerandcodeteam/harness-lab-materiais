@@ -1,0 +1,145 @@
+{
+ "material": "material-de-apoio-aula-2.1.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "jq --version"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "sudo apt install -y jq"
+   ],
+   "motivo": "instala pacote do sistema com sudo; a sandbox já tem jq"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "brew install jq"
+   ],
+   "motivo": "instala pacote do sistema com Homebrew (macOS); a sandbox já tem jq"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 2.1"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls -l .claude/hooks",
+    "jq '.hooks | keys' .claude/settings.json",
+    "git check-ignore -v .claude/logs/eventos.log"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-2-trava",
+    "E=$A/aula-2.1-hooks-o-que-o-modelo-nao-decide/modelos/entradas",
+    ".claude/hooks/espiao.sh < $E/pretooluse-bash.json; echo \"exit $?\"",
+    ".claude/hooks/contexto-inicio.sh; echo \"exit $?\"",
+    ".claude/hooks/avisa.sh < $E/notification.json; echo \"exit $?\"",
+    "cat .claude/logs/eventos.log"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --settings .claude/settings.espiao.json"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "tail -f .claude/logs/eventos.log"
+   ],
+   "motivo": "tail -f fica rodando até Ctrl+C"
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/hooks"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Sem ler arquivos: qual é a branch e a próxima tarefa?",
+    "> Leia o README, acrescente uma linha no fim e rode git diff"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --settings '{\"disableAllHooks\": true}'"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code"
+  }
+ ]
+}

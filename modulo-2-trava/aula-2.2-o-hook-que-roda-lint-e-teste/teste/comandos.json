@@ -1,0 +1,202 @@
+{
+ "material": "material-de-apoio-aula-2.2.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://packagist.org/packages/laravel/pao",
+   "teste": "",
+   "linhas": [
+    "composer require laravel/pao --dev",
+    "# com Sail: ./vendor/bin/sail composer require laravel/pao --dev"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "jq --version"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "sudo apt install -y jq"
+   ],
+   "motivo": "instala pacote do sistema com sudo; a sandbox já tem jq"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "brew install jq coreutils"
+   ],
+   "motivo": "instala pacote do sistema com Homebrew (macOS); a sandbox já tem jq e timeout"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/sail",
+   "teste": "",
+   "linhas": [
+    "./vendor/bin/sail up -d",
+    "./vendor/bin/sail test",
+    "# sem Sail: php artisan test"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://vitest.dev/guide/cli",
+   "teste": "",
+   "linhas": [
+    "npx vitest run",
+    "# com Jest: npx jest"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://docs.pytest.org/en/stable/how-to/usage.html",
+   "teste": "",
+   "linhas": [
+    "pytest -q"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 2.2"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls -l .claude/hooks/quality-gate.sh",
+    "jq '.hooks | keys' .claude/settings.json"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "printf '<?php\\necho \"oi\"\\n' > quebrado.php",
+    "json=$(jq -nc --arg f \"$PWD/quebrado.php\" '{tool_input:{file_path:$f}}')",
+    "echo \"$json\" | .claude/hooks/quality-gate.sh post-edit || echo \"exit $?\"",
+    "rm quebrado.php"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "printf 'const x = ;\\n' > quebrado.js",
+    "json=$(jq -nc --arg f \"$PWD/quebrado.js\" '{tool_input:{file_path:$f}}')",
+    "echo \"$json\" | .claude/hooks/quality-gate.sh post-edit || echo \"exit $?\"",
+    "rm quebrado.js"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "printf 'def f(:\\n    pass\\n' > quebrado.py",
+    "json=$(jq -nc --arg f \"$PWD/quebrado.py\" '{tool_input:{file_path:$f}}')",
+    "echo \"$json\" | .claude/hooks/quality-gate.sh post-edit || echo \"exit $?\"",
+    "rm quebrado.py"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/hooks"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Edite um arquivo PHP de um jeito que faça o Pint falhar",
+    "> Crie um arquivo com erro de sintaxe, para a gente testar o hook"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Mude só um valor em app/Services/Carrinho.php que o CarrinhoTest confere"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --settings '{\"disableAllHooks\": true}'"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code"
+  }
+ ]
+}

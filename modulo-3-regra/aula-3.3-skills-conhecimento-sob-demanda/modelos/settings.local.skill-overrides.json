@@ -1,0 +1,7 @@
+{
+  "skillOverrides": {
+    "skill-que-ninguem-usa": "off",
+    "skill-antiga-do-time": "name-only",
+    "release": "user-invocable-only"
+  }
+}

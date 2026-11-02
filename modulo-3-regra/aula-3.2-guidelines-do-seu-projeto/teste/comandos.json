@@ -1,0 +1,179 @@
+{
+ "material": "material-de-apoio-aula-3.2.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/boost",
+   "teste": "",
+   "linhas": [
+    "composer require laravel/boost --dev",
+    "php artisan boost:install",
+    "# depois de subir versão de pacote: php artisan boost:update"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/sail",
+   "teste": "",
+   "linhas": [
+    "./vendor/bin/sail up -d",
+    "./vendor/bin/sail composer require laravel/boost --dev",
+    "./vendor/bin/sail artisan boost:install"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/boost",
+   "teste": "",
+   "linhas": [
+    "wc -l CLAUDE.md AGENTS.md",
+    "grep -l \"laravel-boost-guidelines\" CLAUDE.md AGENTS.md",
+    "cat .mcp.json boost.json"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install boostify@harness-lab",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace update harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin marketplace update harness-lab",
+    "/plugin install boostify@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/upstash/context7",
+   "teste": "",
+   "linhas": [
+    "node --version",
+    "npx ctx7 setup --claude"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "D=~/harness-lab-materiais/plugins/boostify/skills/boostify",
+    "python3 -I \"$D/scripts/detecta.py\" ."
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/reload-plugins",
+    "/boostify:boostify"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "wc -l CLAUDE.md",
+    "grep -n \"boostify-guidelines\" CLAUDE.md",
+    "cat .ai/boostify.json"
+   ],
+   "motivo": "depende do CLAUDE.md que o boostify grava numa sessão interativa, depois do seu pode"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-3-regra",
+    "M=$A/aula-3.2-guidelines-do-seu-projeto/modelos",
+    "mkdir -p .claude/rules",
+    "cp \"$M/rules/testes.md\" .claude/rules/"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin install claude-code-setup",
+    "/reload-plugins",
+    "> Recomende automações de Claude Code para este projeto"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/boost#set-up-your-agents",
+   "teste": "",
+   "linhas": [
+    "claude mcp add -s local -t stdio laravel-boost php artisan boost:mcp"
+   ],
+   "motivo": ""
+  }
+ ]
+}

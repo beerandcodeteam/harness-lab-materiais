@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": ["Bash(git status)"]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [{ "type": "command", "command": "git log --oneline -3" }]
+      }
+    ]
+  }
+}

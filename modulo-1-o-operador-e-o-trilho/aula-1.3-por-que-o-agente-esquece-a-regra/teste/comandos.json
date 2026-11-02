@@ -1,0 +1,157 @@
+{
+ "material": "material-de-apoio-aula-1.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 1.3"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install correcoes@harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin marketplace update harness-lab",
+    "/plugin install correcoes@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/correcoes:anotar"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/correcoes:anotar 10",
+    "/correcoes:anotar --todas"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "S=~/harness-lab-materiais/plugins/correcoes/skills/anotar/scripts",
+    "\"$S\"/mensagens.sh",
+    "\"$S\"/mensagens.sh 10 --todas"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --resume"
+   ],
+   "motivo": "abre o seletor interativo de sessões do Claude Code"
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/diagnostico-operador listar testou repetiu",
+    "/insights"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "grep -nE \"^\\| [1-5] \\|.*\\| \\| \" correcoes.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "grep -n \"migrate:fresh\" CLAUDE.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/context",
+    "> Qual a regra sobre usar migrate:fresh neste projeto?"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/autocompact 300k"
+   ],
+   "motivo": ""
+  }
+ ]
+}

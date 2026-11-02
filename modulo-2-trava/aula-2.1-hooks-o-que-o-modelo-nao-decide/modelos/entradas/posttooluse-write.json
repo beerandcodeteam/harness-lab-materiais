@@ -1,0 +1,26 @@
+{
+  "session_id": "abc123",
+  "transcript_path": "/home/voce/.claude/projects/-home-voce-loja/abc123.jsonl",
+  "cwd": "/home/voce/loja",
+  "prompt_id": "p-001",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "/home/voce/loja/notas.txt",
+    "content": "oi\n"
+  },
+  "tool_response": {
+    "type": "create",
+    "filePath": "/home/voce/loja/notas.txt",
+    "content": "oi\n",
+    "structuredPatch": [],
+    "originalFile": null,
+    "userModified": false
+  },
+  "tool_use_id": "toolu_001",
+  "duration_ms": 6
+}

@@ -1,0 +1,26 @@
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "fastapi"
+version = "0.115.6"
+
+[[package]]
+name = "pydantic"
+version = "2.10.4"
+
+[[package]]
+name = "pytest"
+version = "8.3.4"
+
+[[package]]
+name = "ruff"
+version = "0.8.4"
+
+[[package]]
+name = "torch"
+version = "2.5.1"
+
+[[package]]
+name = "transformers"
+version = "4.47.1"

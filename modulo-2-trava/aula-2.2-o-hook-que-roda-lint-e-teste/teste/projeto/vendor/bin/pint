@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+// Stub da sandbox do Harness Lab: NÃO é o Laravel Pint. Só conhece uma regra de estilo:
+// espaço sobrando no fim da linha. Com --test, acusa (exit 1). Sem --test, corrige.
+$args = array_slice($argv, 1);
+$testa = in_array('--test', $args, true);
+$arquivos = array_values(array_filter($args, fn ($a) => $a[0] !== '-'));
+$ruins = [];
+
+foreach ($arquivos as $arquivo) {
+    $antes = file_get_contents($arquivo);
+    $depois = preg_replace('/[ \t]+$/m', '', $antes);
+    if ($depois !== $antes) {
+        $ruins[] = $arquivo;
+        if (! $testa) {
+            file_put_contents($arquivo, $depois);
+        }
+    }
+}
+
+if ($testa && $ruins) {
+    $files = array_map(fn ($f) => ['path' => $f, 'fixers' => ['no_trailing_whitespace']], $ruins);
+    echo json_encode(['tool' => 'pint', 'result' => 'fail', 'files' => $files]), "\n";
+    exit(1);
+}
+
+echo json_encode(['tool' => 'pint', 'result' => 'passed']), "\n";
+exit(0);

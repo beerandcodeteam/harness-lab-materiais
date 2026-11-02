@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "QG_TESTE_NA_EDICAO=1 QG_LIMITE_EDICAO=280 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/quality-gate.sh post-edit",
+            "timeout": 300,
+            "statusMessage": "quality gate: lint e teste do arquivo editado"
+          }
+        ]
+      }
+    ]
+  }
+}

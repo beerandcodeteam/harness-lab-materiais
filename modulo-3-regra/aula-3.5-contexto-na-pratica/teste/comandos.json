@@ -1,0 +1,191 @@
+{
+ "material": "material-de-apoio-aula-3.5.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "jq --version"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "sudo apt install -y jq"
+   ],
+   "motivo": "instala pacote do sistema com sudo; a sandbox já tem jq"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "brew install jq"
+   ],
+   "motivo": "instala pacote do sistema com Homebrew (macOS); a sandbox já tem jq"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 3.5"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls -l .claude/hooks/plano-depois-do-compact.sh",
+    "jq '.hooks.SessionStart' .claude/settings.json"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-3-regra/aula-3.5-contexto-na-pratica",
+    "mkdir -p features/frete",
+    "cp \"$A/modelos/PLANO.md\" features/frete/PLANO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "H=.claude/hooks/plano-depois-do-compact.sh",
+    "echo '{\"source\":\"compact\"}' | \"$H\" | jq -r .systemMessage"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-3-regra/aula-3.5-contexto-na-pratica",
+    "\"$A/modelos/ligar-statusline.sh\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "J='{\"context_window\":{\"context_window_size\":200000,\"used_percentage\":34}}'",
+    "echo \"$J\" | ~/.claude/statusline-contexto.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/statusline mostre o % de contexto: amarelo de 30% e vermelho de 45%"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/hooks",
+    "/context",
+    "/compact mantenha as decisões do frete e os comandos de teste",
+    "/context",
+    "> Sem ler arquivo: qual o próximo item do plano e o que não deu certo?"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/clear",
+    "> Leia features/frete/PLANO.md e faça o próximo item pendente. Só ele."
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/rewind",
+    "/clear frete-faixa-pesado",
+    "/resume"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --continue",
+    "# para escolher a sessão na lista: claude --resume"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code com conversa anterior"
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/autocompact 400k"
+   ],
+   "motivo": ""
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "enxuto",
+  "version": "1.0.0",
+  "description": "Harness Lab, aula 3.1: passa cada linha do CLAUDE.md no filtro \"o agente descobriria isso lendo o código?\", mede o que carrega e propõe a versão enxuta.",
+  "author": {
+    "name": "Beer and Code"
+  }
+}

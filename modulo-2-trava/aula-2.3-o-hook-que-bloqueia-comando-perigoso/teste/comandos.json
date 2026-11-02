@@ -1,0 +1,97 @@
+{
+ "material": "material-de-apoio-aula-2.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "python3 --version",
+    "jq --version"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 2.3",
+    "ls .claude/hooks"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "G=.claude/hooks/guard-destructive.py",
+    "python3 $G --eval 'php artisan migrate:fresh --seed'",
+    "python3 $G --eval 'php artisan migrate:status'"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "jq -nc '{tool_input: {file_path: \".env\"}}' | .claude/hooks/protege-env.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "S=~/.claude/settings.json",
+    "export TYPESAFE_API_KEY=$(jq -r .env.TYPESAFE_API_KEY $S)",
+    "J=.claude/hooks/guard-jev.py",
+    "python3 $J --eval 'php artisan migrate:fresh --seed'"
+   ],
+   "motivo": "precisa da TYPESAFE_API_KEY do aluno e chama a API paga da TypeSafe"
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/hooks",
+    "> Rode php artisan migrate:fresh --seed",
+    "> Rode php artisan migrate:status",
+    "> Leia o .env e me diga o APP_KEY"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "tail -n 5 .claude/logs/comandos.jsonl"
+   ],
+   "motivo": "o log só existe depois que o Claude Code rodou comandos no projeto"
+  }
+ ]
+}

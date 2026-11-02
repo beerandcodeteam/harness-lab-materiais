@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Stub de teste do Sail (não é o Sail real): anota a chamada em sail.log.
+# FALHA=<subcomando> faz aquele subcomando falhar, para testar o prova.sh.
+echo "sail $*" >> "${SAIL_LOG:-sail.log}"
+if [ -n "${FALHA:-}" ] && [ "${2:-}" = "$FALHA" ]; then
+  echo "SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'cpf'"
+  exit 1
+fi
+echo "INFO  Running migrations."

@@ -1,0 +1,8 @@
+{
+  "name": "correcoes",
+  "version": "1.0.0",
+  "description": "Acha nas suas sessões do Claude Code as vezes em que você corrigiu o agente e anota as 5 mais recentes em correcoes.md (pediu, ele fez, você corrigiu). Prática da aula 1.3 do Harness Lab.",
+  "author": {
+    "name": "Beer and Code"
+  }
+}

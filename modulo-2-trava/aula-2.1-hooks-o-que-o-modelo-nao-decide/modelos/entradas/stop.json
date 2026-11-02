@@ -1,0 +1,15 @@
+{
+  "session_id": "abc123",
+  "transcript_path": "/home/voce/.claude/projects/-home-voce-loja/abc123.jsonl",
+  "cwd": "/home/voce/loja",
+  "prompt_id": "p-001",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "Stop",
+  "stop_hook_active": false,
+  "last_assistant_message": "notas.txt criado com oi.",
+  "background_tasks": [],
+  "session_crons": []
+}

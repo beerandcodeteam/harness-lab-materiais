@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+// Stub da sandbox do Harness Lab: NÃO é o Pest.
+// Roda cada arquivo de teste com o php e falha se algum falhar. Existe só para o teste/verificar.sh.
+$falhou = 0;
+
+foreach (array_slice($argv, 1) as $arquivo) {
+    if ($arquivo[0] === '-') {
+        continue;
+    }
+    passthru(escapeshellarg(PHP_BINARY).' '.escapeshellarg($arquivo), $rc);
+    if ($rc !== 0) {
+        $falhou = 1;
+    }
+}
+
+exit($falhou);

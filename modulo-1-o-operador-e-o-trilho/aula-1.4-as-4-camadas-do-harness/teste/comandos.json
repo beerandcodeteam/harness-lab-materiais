@@ -1,0 +1,117 @@
+{
+ "material": "material-de-apoio-aula-1.4.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 1.4"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install diagnostico-camadas@harness-lab",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin marketplace update harness-lab",
+    "/plugin install diagnostico-camadas@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git log --oneline -15"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/diagnostico-camadas",
+    "# ou apontando o arquivo das correções",
+    "/diagnostico-camadas correcoes.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Classifique minhas 5 correções da 1.3 em Regra, Trava, Prova ou Loop"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "sed -n '/^## Contagem/,$p' diagnostico-camadas.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~/harness-lab-materiais/modulo-1-*/aula-1.4-*/modelos/mapa-das-camadas",
+    "j='{\"tool_input\":{\"command\":\"php artisan migrate:fresh\"}}'",
+    "echo \"$j\" | .claude/hooks/bloqueia.sh || echo \"exit $?\""
+   ],
+   "motivo": ""
+  }
+ ]
+}

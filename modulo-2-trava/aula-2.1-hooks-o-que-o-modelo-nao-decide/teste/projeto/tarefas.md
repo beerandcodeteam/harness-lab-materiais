@@ -1,0 +1,3 @@
+- [x] login
+- [ ] carrinho com cupom
+- [ ] checkout

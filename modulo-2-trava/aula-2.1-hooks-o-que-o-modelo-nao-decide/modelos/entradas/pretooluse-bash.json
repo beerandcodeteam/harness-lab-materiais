@@ -1,0 +1,17 @@
+{
+  "session_id": "abc123",
+  "transcript_path": "/home/voce/.claude/projects/-home-voce-loja/abc123.jsonl",
+  "cwd": "/home/voce/loja",
+  "prompt_id": "p-001",
+  "permission_mode": "default",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Bash",
+  "tool_input": {
+    "command": "cat notas.txt",
+    "description": "Show contents of notas.txt"
+  },
+  "tool_use_id": "toolu_001"
+}

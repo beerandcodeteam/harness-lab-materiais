@@ -1,0 +1,132 @@
+{
+ "material": "material-de-apoio-aula-3.1.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "wc -l CLAUDE.md",
+    "cp -n CLAUDE.md CLAUDE.old.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> oi",
+    "/context",
+    "/memory"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 3.1"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install enxuto@harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add anthropics/claude-plugins-official",
+    "claude plugin install claude-md-management@claude-plugins-official"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin marketplace update harness-lab",
+    "/plugin install enxuto@harness-lab",
+    "/plugin install claude-md-management@claude-plugins-official",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/reload-plugins",
+    "/enxugar-claude-md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> oi",
+    "/context",
+    "> Mostre a data de entrega do pedido na tela de detalhes",
+    "/doctor prompt-audit"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin list",
+    "wc -l CLAUDE.md CLAUDE.old.md"
+   ],
+   "motivo": ""
+  }
+ ]
+}

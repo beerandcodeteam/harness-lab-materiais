@@ -1,0 +1,8 @@
+{
+  "name": "diagnostico-operador",
+  "version": "1.0.0",
+  "description": "Mede no seu histórico do Claude Code quem fez o trabalho andar: você (o Operador) ou o trilho. Skill /diagnostico-operador antes | depois | comparar | listar | projetos. Harness Lab, aula 1.1.",
+  "author": {
+    "name": "Beer and Code"
+  }
+}

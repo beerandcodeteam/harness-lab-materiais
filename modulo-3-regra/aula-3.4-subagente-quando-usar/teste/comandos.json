@@ -1,0 +1,148 @@
+{
+ "material": "material-de-apoio-aula-3.4.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 3.4"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls .claude/agents",
+    "claude plugin validate .claude/agents"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "H=.claude/hooks/bash-so-permitido.sh",
+    "j='{\"tool_input\":{\"command\":\"git diff; rm -rf .\"}}'",
+    "echo \"$j\" | $H \"git diff\" || echo \"exit $?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> @agent-test-runner rode a suíte inteira",
+    "/context"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> @agent-revisor revise o diff da branch. Mande o git diff no pedido"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "/plugin install bc-harness@beer-and-code",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/beer-and-code-harness",
+   "teste": "",
+   "linhas": [
+    "/bc-harness:ai-context --adopt"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git status --short",
+    "git diff --stat"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/memory",
+    "/config"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-3-regra/aula-3.4-subagente-quando-usar",
+    "cp \"$A/modelos/revisor-com-git.md\" .claude/agents/revisor.md"
+   ],
+   "motivo": ""
+  }
+ ]
+}

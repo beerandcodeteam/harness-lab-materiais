@@ -1,0 +1,158 @@
+{
+ "material": "material-de-apoio-aula-3.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 3.3"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin validate .claude/skills"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    ".claude/skills/nova-migration/scripts/prova.sh . --seco"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install skill-gatilho@harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin marketplace update harness-lab",
+    "/plugin install skill-gatilho@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/skills",
+    "> adiciona a coluna cpf em clientes"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/skill-gatilho:descrever nova-migration"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "S=~/harness-lab-materiais/plugins/skill-gatilho/skills/descrever",
+    "python3 -I \"$S/scripts/confere.py\" .claude/skills"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "mkdir -p .claude/skills/minha-skill",
+    "M=$(echo ~/harness-lab-materiais/modulo-3-regra/aula-3.3-*/modelos)",
+    "cp \"$M/primeira-skill.md\" .claude/skills/minha-skill/SKILL.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "mkdir -p ~/skills-avulsas/.claude/skills"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --add-dir ~/skills-avulsas"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code"
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/docs/boost#custom-skills",
+   "teste": "",
+   "linhas": [
+    "mkdir -p .ai/skills",
+    "cp -r .claude/skills/nova-migration .ai/skills/",
+    "php artisan boost:update"
+   ],
+   "motivo": ""
+  }
+ ]
+}

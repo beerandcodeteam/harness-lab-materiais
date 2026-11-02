@@ -1,0 +1,13 @@
+[project]
+name = "assistente-voz"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.5",
+    "transformers>=4.46",
+    "fastapi>=0.115",
+    "pydantic>=2.9",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.8"]

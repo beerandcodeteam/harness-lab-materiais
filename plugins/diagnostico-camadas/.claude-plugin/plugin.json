@@ -1,0 +1,8 @@
+{
+  "name": "diagnostico-camadas",
+  "version": "1.0.0",
+  "description": "Classifica as suas correções ao agente nas 4 camadas do harness (Regra, Trava, Prova, Loop) ou em falta de inteligência, e grava diagnostico-camadas.md com a contagem e por onde começar. Prática da aula 1.4 do Harness Lab.",
+  "author": {
+    "name": "Beer and Code"
+  }
+}

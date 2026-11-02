@@ -1,0 +1,9 @@
+{
+    "name": "harness-lab/projeto-falso-aula-2-2",
+    "description": "Projeto falso da sandbox da aula 2.2. Os binários em vendor/bin são stubs de teste, não o Pint nem o Pest.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

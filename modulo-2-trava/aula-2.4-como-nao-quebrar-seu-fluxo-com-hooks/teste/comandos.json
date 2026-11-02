@@ -1,0 +1,127 @@
+{
+ "material": "material-de-apoio-aula-2.4.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 2.4"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "bash testes/testa-hooks.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "M=~/harness-lab-materiais/modulo-2-trava",
+    "Q=$(echo $M/aula-2.4-*/modelos/quebrados)",
+    "bash testes/testa-hooks.sh \"$Q/campo-errado\" || echo \"pegou\"",
+    "bash testes/testa-hooks.sh \"$Q/demais\" || echo \"pegou\"",
+    "bash testes/testa-hooks.sh \"$Q/eco-no-stdout\" || echo \"pegou\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "rm -rf /tmp/hooks-sem-x",
+    "cp -r .claude/hooks /tmp/hooks-sem-x",
+    "chmod -x /tmp/hooks-sem-x/*.sh",
+    "bash testes/testa-hooks.sh /tmp/hooks-sem-x || echo \"pegou\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Escreva os casos de testes/casos-hooks.sh sem mudar os hooks"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "F=.claude/settings.json",
+    "jq -c '.hooks.PreToolUse[]?.hooks[]? | {command, onFailure}' $F"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Ponha \"onFailure\": \"block\" nas travas locais que estão sem",
+    "/hooks"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git add .claude/settings.json .claude/hooks testes",
+    "git commit -m \"hooks com teste\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "claude --settings '{\"disableAllHooks\": true}'"
+   ],
+   "motivo": "abre uma sessão interativa do Claude Code, que precisa de login"
+  }
+ ]
+}

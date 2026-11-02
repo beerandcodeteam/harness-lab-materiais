@@ -1,0 +1,6 @@
+{
+  "name": "skill-gatilho",
+  "version": "1.0.0",
+  "description": "Harness Lab, aula 3.3: escreve a descrição de uma skill no padrão da Anthropic e confere o leque de skills do projeto (tamanho, nome, campos errados, skills gêmeas).",
+  "author": { "name": "Beer and Code" }
+}

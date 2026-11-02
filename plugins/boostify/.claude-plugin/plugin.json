@@ -1,0 +1,7 @@
+{
+  "name": "boostify",
+  "version": "1.0.0",
+  "description": "A filosofia do Laravel Boost para qualquer stack fora do Laravel: detecta stack e versões instaladas e escreve as guidelines do projeto num bloco marcado do CLAUDE.md, com o context7 no lugar da documentação por versão. Aula 3.2 do Harness Lab.",
+  "author": {"name": "Beer and Code"},
+  "keywords": ["claude-md", "guidelines", "context7", "laravel-boost"]
+}

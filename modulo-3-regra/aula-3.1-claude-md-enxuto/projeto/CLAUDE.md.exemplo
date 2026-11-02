@@ -1,0 +1,29 @@
+<!--
+Harness Lab · aula 3.1 · esqueleto enxuto (o do slide "O esqueleto enxuto").
+Este comentário é para quem mantém o arquivo: o Claude Code tira comentário HTML de bloco
+antes de mandar o CLAUDE.md para o modelo, então ele não gasta contexto.
+Como usar: troque o conteúdo pelo do seu projeto e renomeie para CLAUDE.md.
+Cada linha tem que passar no filtro: "o agente descobriria isso lendo o código?".
+Se sim, a linha sai.
+-->
+# Loja · Laravel 12 + Livewire + Pest
+
+## Comandos
+- Tudo via Sail: `./vendor/bin/sail artisan ...`, nunca `php artisan` direto.
+- Um teste: `./vendor/bin/sail artisan test --filter=Nome`
+- Lint do que mudou: `./vendor/bin/sail bin pint --dirty`
+
+<!-- Decisões: só onde o projeto foge do padrão do framework. -->
+## Decisões
+- Regra de negócio em app/Actions, uma classe por caso de uso.
+- Dinheiro em centavos (int). Float não entra em valor de pedido.
+
+<!-- Erros: só o que se repetiu. Regra + jeito + porquê, numa linha. Sem história. -->
+## Erros que já aconteceram
+- Datas no banco em UTC; converta só na view com `->timezone(config('app.tz'))`.
+  (Converter no model dobrou o fuso no relatório de vendas.)
+- Fila de e-mail roda em redis, não sync; teste com `Mail::fake()`.
+  (Teste sem fake mandou e-mail real.)
+
+## Onde procurar
+- Contrato da API: docs/api.md. Leia antes de mexer em rota.
