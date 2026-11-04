@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+// Projeto de teste da aula 6.1: só a forma de um Laravel com Sail, para o
+// loop.sh e o ralph detectarem "vendor/bin/sail test" como na gravação.

@@ -1,0 +1,3 @@
+# Harness Lab · aula 5.3 · o .env ao lado do ralph.sh e do aviso-env.sh guarda token e URL
+# do aviso. Ele, ou o link para ~/.config/harness-lab/aviso.env, nunca vai para o git.
+.env

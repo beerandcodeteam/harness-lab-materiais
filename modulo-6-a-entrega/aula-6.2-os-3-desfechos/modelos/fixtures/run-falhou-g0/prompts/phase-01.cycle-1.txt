@@ -1,0 +1,78 @@
+Voce e um desenvolvedor senior implementando uma fase deste projeto.
+
+## Descubra a stack e as convencoes antes de escrever codigo
+Este projeto pode ser de qualquer linguagem ou framework. NAO assuma nenhuma
+stack. Antes de comecar, LEIA os que existirem, nesta ordem:
+1. AGENTS.md ou CLAUDE.md — convencoes, comandos e regras do projeto
+2. .spec/init/project-description.md — descricao geral do projeto
+3. .spec/init/user-stories.md — user stories
+4. .spec/init/database-schema.md — modelo de dados
+5. os documentos citados no proprio texto da fase (ex: SPEC.md/PLAN.md da feature)
+Use os comandos de build, teste e execucao definidos por esses documentos e pelo
+tooling ja presente no repositorio. Se o projeto tiver uma ferramenta de memoria
+ou contexto configurada, use-a para entender o historico.
+
+## Comando de teste deste projeto
+Rode a suite SEMPRE com:
+
+    testes/motor-falso/teste-do-projeto
+
+Este e o comando exato usado para validar a fase. Nao use outro runner
+nem rode os testes por fora dele.
+
+## Protocolo de progresso (obrigatorio)
+Um orquestrador externo le a sua saida em tempo real para mostrar ao operador
+humano em qual item desta fase voce esta. O canal e TEXTO PURO, nao depende de
+ferramenta nenhuma: escreva, como uma linha isolada da sua resposta,
+
+    RALPH-TASK <n> START     antes de comecar o item n
+    RALPH-TASK <n> DONE      quando o codigo E os testes do item n estiverem prontos
+
+onde `<n>` e a posicao do item `- [ ]` nesta fase (1 para o primeiro, 2 para o
+segundo, e assim por diante — nao use o codigo T03/T12 do enunciado).
+
+Regras:
+- trabalhe em um item por vez, na ordem;
+- emita o START antes da primeira edicao daquele item e o DONE so quando ele
+  estiver realmente pronto;
+- nao emita DONE de um item que voce nao implementou;
+- as duas linhas sao obrigatorias mesmo que o item seja pequeno.
+
+Se a sua sessao tiver ferramenta de lista de tarefas (TaskCreate/TaskUpdate ou
+TodoWrite), use-a tambem, com uma tarefa por item na mesma ordem — mas as
+linhas `RALPH-TASK` continuam obrigatorias: em sessao headless essa ferramenta
+costuma nao existir, e sem as linhas o operador fica cego durante a fase.
+
+## Sua tarefa agora
+Implemente COMPLETAMENTE a fase descrita abaixo.
+
+Para cada item:
+1. Implemente o codigo completo (nao deixe TODOs ou placeholders)
+2. Crie os testes listados, seguindo o framework de testes do projeto
+3. Rode os testes com o comando de teste do projeto
+4. Se um teste falhar, corrija o codigo e rode novamente
+5. So passe pro proximo item quando os testes passarem
+
+## Regras obrigatorias
+- Use SEMPRE os comandos, o runner de testes e as ferramentas ja adotados pelo
+  projeto (nao introduza uma stack ou ferramenta nova por conta propria)
+- Testes e fixtures/factories devem criar todas as dependencias necessarias
+- Nomes de classes, arquivos e metodos devem seguir EXATAMENTE o que esta descrito
+- Nao pule nenhum item marcado com [ ]
+- Ao final, valide que toda a suite de testes da fase passa
+
+## Fase a implementar
+## Phase 1: Gerador do texto do .ics
+
+Antes de implementar, leia:
+1. `.spec/features/agenda-ics/SPEC.md`
+
+- [ ] T01 Gerador do VEVENT de dia inteiro
+      Arquivos: `app/Support/AgendaIcs.php`
+      Acceptance criteria: evento de 28/11/2026 a 30/11/2026 gera DTSTART;VALUE=DATE:20261128 e DTEND;VALUE=DATE:20261201 (AC-03)
+      Testes: `tests/Feature/AgendaIcsTest.php`
+- [ ] T02 Escape de vírgula e ponto e vírgula no SUMMARY
+      Arquivos: `app/Support/AgendaIcs.php`
+      Acceptance criteria: "Imersão, Lab; Turma 2" vira SUMMARY:Imersão\, Lab\; Turma 2 (AC-04)
+      Testes: `tests/Feature/AgendaIcsTest.php`
+

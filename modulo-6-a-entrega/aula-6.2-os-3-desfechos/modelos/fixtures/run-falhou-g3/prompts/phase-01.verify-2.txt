@@ -1,0 +1,51 @@
+RALPH_VERIFY
+
+Voce e um verificador independente. NAO escreva, edite ou crie nenhum arquivo.
+Seu unico trabalho e ler o codigo real e dizer o que esta feito e o que nao esta.
+
+Para CADA task marcada com `- [ ]` ou `- [x]` na fase abaixo, na ordem em que
+aparecem, confira os acceptance criteria contra o codigo real (arquivos, classes,
+testes, rotas, migrations — o que a task exigir) e emita EXATAMENTE UMA linha:
+
+TASK <n>: DONE
+TASK <n>: INCOMPLETE — <o que falta>
+
+Regras:
+- <n> e o indice da task na fase, comecando em 1.
+- Uma linha TASK para cada task, sem excecao, sem agrupar.
+- Nao emita nenhum outro texto alem das linhas TASK.
+- Codigo ausente, TODO, placeholder ou teste faltando => INCOMPLETE.
+- Na duvida, INCOMPLETE.
+
+Execucao (headless — leia com atencao):
+- Voce roda em sessao nao-interativa: o processo MORRE quando este turno acaba.
+  Nao existe turno seguinte, nao existe notificacao de tarefa concluida.
+- NUNCA rode nada em background (`run_in_background`, `&`, `nohup`) nem espere
+  por notificacao de conclusao. O resultado nunca chegara e a fase sera reprovada
+  por falta das linhas TASK.
+- Rode comandos apenas de forma SINCRONA e apenas se forem rapidos (segundos):
+  `grep`, `ls`, `route:list`, `schedule:list`, `test --filter=<Arquivo>`.
+- NAO rode a suite completa (`artisan test` sem filtro): ela leva dezenas de
+  minutos e nao cabe neste gate. Para tasks cujo criterio e "suite verde",
+  verifique pela EXISTENCIA e pelo CONTEUDO dos testes exigidos e pelo log de
+  teste da propria fase, e emita o veredito com base nisso.
+- Emitir as linhas TASK e a ULTIMA coisa que voce faz e e OBRIGATORIO. Terminar o
+  turno sem elas reprova a fase, mesmo que o codigo esteja correto. Se ficou sem
+  evidencia suficiente para alguma task, emita INCOMPLETE para ela — nunca
+  termine o turno anunciando que vai aguardar algo.
+
+## Fase a verificar
+## Phase 1: Gerador do texto do .ics
+
+Antes de implementar, leia:
+1. `.spec/features/agenda-ics/SPEC.md`
+
+- [ ] T01 Gerador do VEVENT de dia inteiro
+      Arquivos: `app/Support/AgendaIcs.php`
+      Acceptance criteria: evento de 28/11/2026 a 30/11/2026 gera DTSTART;VALUE=DATE:20261128 e DTEND;VALUE=DATE:20261201 (AC-03)
+      Testes: `tests/Feature/AgendaIcsTest.php`
+- [ ] T02 Escape de vírgula e ponto e vírgula no SUMMARY
+      Arquivos: `app/Support/AgendaIcs.php`
+      Acceptance criteria: "Imersão, Lab; Turma 2" vira SUMMARY:Imersão\, Lab\; Turma 2 (AC-04)
+      Testes: `tests/Feature/AgendaIcsTest.php`
+

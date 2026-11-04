@@ -1,0 +1,20 @@
+{
+    "name": "aluno/projeto-falso",
+    "description": "Projeto falso da sandbox da aula 4.4: o estado depois dos comandos de stack e do pedido do ambiente.",
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^13.0"
+    },
+    "require-dev": {
+        "laravel/sail": "^1.53",
+        "pestphp/pest": "^5.3",
+        "pestphp/pest-plugin-browser": "^5.2",
+        "pestphp/pest-plugin-laravel": "^5.0"
+    },
+    "scripts": {
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ]
+    }
+}

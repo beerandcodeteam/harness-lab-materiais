@@ -1,0 +1,15 @@
+META	run	run-1103-120000
+META	project	demo
+META	status	running
+META	started	1793718000
+META	pid	4194304
+META	engine	claude
+META	phase_total	2
+META	phase_cur	1
+META	cycle	1
+META	cycle_max	3
+META	gate	
+META	activity	bash: rodando os testes
+META	last_error	
+PHASE	1	running	1	pending pending pending pending	Primeira fase
+PHASE	2	pending	0	pending pending pending pending	Segunda fase

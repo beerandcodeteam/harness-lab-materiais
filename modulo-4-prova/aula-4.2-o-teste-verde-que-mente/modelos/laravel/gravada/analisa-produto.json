@@ -1,0 +1,27 @@
+{
+    "id": "resp_reconstrucao_gravada_aula_4_2",
+    "object": "response",
+    "created_at": 1778851246,
+    "status": "completed",
+    "model": "modelo-do-smoke",
+    "output": [
+        {
+            "id": "msg_reconstrucao_gravada_aula_4_2",
+            "type": "message",
+            "status": "completed",
+            "role": "assistant",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [],
+                    "text": "{\"product\":{\"name\":\"Fone Bluetooth XYZ Go\",\"category\":\"Fones de ouvido\",\"estimated_price_range\":\"R$ 180 a R$ 230\"},\"summary\":\"Boa compra para uso diário: bateria de cerca de 20 horas e conexão estável. Não tem cancelamento de ruído ativo.\",\"similar_products\":[{\"name\":\"Fone ABC Air\",\"reason\":\"Mesma faixa de preço, com estojo menor.\"},{\"name\":\"Fone XYZ Pro\",\"reason\":\"Tem cancelamento de ruído, mas custa o dobro.\"}],\"recommendation\":{\"decision\":\"buy\",\"reason\":\"O preço está dentro da média da categoria para o que entrega.\"}}"
+                }
+            ]
+        }
+    ],
+    "usage": {
+        "input_tokens": 298,
+        "output_tokens": 164,
+        "total_tokens": 462
+    }
+}

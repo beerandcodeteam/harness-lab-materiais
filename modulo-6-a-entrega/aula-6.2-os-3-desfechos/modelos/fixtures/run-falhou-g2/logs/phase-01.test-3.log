@@ -1,0 +1,4 @@
+  FAILED  Tests\Feature\AgendaIcsTest > AC-03 DTEND é exclusivo
+  Failed asserting that 'DTEND;VALUE=DATE:20261130' contains 'DTEND;VALUE=DATE:20261201'.
+
+  Tests:    1 failed, 5 passed (9 assertions)

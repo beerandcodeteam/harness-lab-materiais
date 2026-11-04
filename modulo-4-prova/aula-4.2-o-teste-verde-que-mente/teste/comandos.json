@@ -1,0 +1,185 @@
+{
+ "material": "material-de-apoio-aula-4.2.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 4.2"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.2-o-teste-verde-que-mente",
+    "bash $A/modelos/testes/testa-guarda.sh .claude/hooks/guarda-aceite.py"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.2-o-teste-verde-que-mente",
+    "M=$A/modelos; F=$M/fixtures",
+    "python3 -I $M/schema_estrito.py $F/schema-antes.json || echo \"exit $?\"",
+    "python3 -I $M/schema_estrito.py $F/schema-depois.json"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> onde a minha feature-alvo fala com fora?",
+    "> escreva o teste de contrato do ponto mais arriscado"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.2-o-teste-verde-que-mente",
+    "mkdir -p tests/Feature/Ai",
+    "cp $A/modelos/laravel/SchemaEstritoTest.php tests/Feature/Ai/"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> troque AnalisaProduto no SchemaEstritoTest pelos agentes do app"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/framework/docs/13.x/testing",
+   "teste": "",
+   "linhas": [
+    "php artisan test --filter=SchemaEstrito"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "echo 'tests/Feature/Ai/SchemaEstritoTest.php' >> .claude/aceite.txt",
+    "cat .claude/aceite.txt"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "T=tests/Feature/Ai/SchemaEstritoTest.php",
+    "j='{\"tool_name\":\"Edit\",\"tool_input\":{\"file_path\":\"'$T'\",'",
+    "j+='\"old_string\":\"toBe([])\",\"new_string\":\"toBeArray()\"}}'",
+    "echo \"$j\" | python3 .claude/hooks/guarda-aceite.py || echo \"exit $?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.2-o-teste-verde-que-mente",
+    "L=$A/modelos/laravel",
+    "mkdir -p tests/Fixtures/openai/gravada",
+    "cp $L/SmokeOpenAiTest.php $L/DubleNaBordaHttpTest.php tests/Feature/Ai/",
+    "cp $L/gravada/analisa-produto.json tests/Fixtures/openai/gravada/"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://pestphp.com/docs/grouping-tests",
+   "teste": "",
+   "linhas": [
+    "php artisan test",
+    "php artisan test --group=integration"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.2-o-teste-verde-que-mente",
+    "cp $A/modelos/python/test_smoke_openai.py tests/"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://docs.pytest.org/en/stable/example/markers.html",
+   "teste": "",
+   "linhas": [
+    "pytest -q",
+    "pytest -m integration"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> antes do plano, rode um smoke real do ponto de fora e liste os campos"
+   ],
+   "motivo": ""
+  }
+ ]
+}

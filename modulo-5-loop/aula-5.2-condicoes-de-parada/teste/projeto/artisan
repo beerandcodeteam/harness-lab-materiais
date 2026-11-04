@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+// artisan de mentira: o projeto de teste da aula 5.2 só precisa do arquivo
+// para o loop.sh achar a Prova ("php artisan test"), como num Laravel sem Sail.
+fwrite(STDERR, "projeto de teste: nada a rodar\n");
+exit(0);

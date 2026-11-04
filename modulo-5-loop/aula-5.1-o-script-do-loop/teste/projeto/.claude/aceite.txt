@@ -1,0 +1,2 @@
+# .claude/aceite.txt · testes de aceite da agenda (aula 4.2)
+test/agenda-ics.test.mjs

@@ -1,0 +1,3 @@
+# Acrescente ao .gitignore do projeto (Pest browser grava aqui quando um teste falha)
+tests/Browser/Screenshots
+tests/Browser/Traces

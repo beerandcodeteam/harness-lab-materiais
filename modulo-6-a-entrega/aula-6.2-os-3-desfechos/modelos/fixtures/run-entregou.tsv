@@ -1,0 +1,47 @@
+META	project	workshop-cron-explainer
+META	phase_total	4
+META	activity	
+META	cycle	1
+META	pid	38201
+META	engine	claude
+META	test_cmd	vendor/bin/sail test
+META	phase_cur	4
+META	note	
+META	run	run-0819-224012
+META	ended	1787190800
+META	started	1787190012
+META	last_error	
+META	gate	
+META	cycle_max	3
+META	status	finished
+META	input	.spec/init/project-phases.md
+PHASE	1	done	1	pass skip pass pass	Fundação — Laravel AI SDK, ausência de banco e base de UI
+TASK	1	1	done	Instalar o pacote laravel/ai como dependência de produção
+TASK	1	2	done	Publicar a configuração do SDK sem rodar as migrations do pacote
+TASK	1	3	done	Criar config/cron-explainer.php e as chaves de ambiente do domínio
+TASK	1	4	done	Confirmar que nenhuma migration nova é necessária e que as tabelas herdadas permanecem intocadas
+TASK	1	5	done	Remover RefreshDatabase de tests/Pest.php
+TASK	1	6	done	Configurar locale pt_BR e o timezone de exibição
+TASK	1	7	done	Criar o layout base resources/views/components/layouts/app.blade.php
+PHASE	2	done	1	pass skip pass pass	Agente CronExplainer — instruções e contrato de saída
+TASK	2	1	done	Criar app/Ai/Agents/CronExplainer.php implementando Agent e HasStructuredOutput
+TASK	2	2	done	Escrever instructions() com as regras do domínio em pt-BR
+TASK	2	3	done	Definir schema() com o contrato de structured output
+TASK	2	4	done	Criar o arquivo de teste do agente
+PHASE	3	done	1	pass skip pass pass	Interface Livewire e fluxos completos
+TASK	3	1	done	Criar o page component SFC pages::cron-explainer
+TASK	3	2	done	Apontar a rota / para o componente e remover a view de boas-vindas
+TASK	3	3	done	Implementar estado do componente e a action explicar()
+TASK	3	4	done	Implementar a validação local de input vazio
+TASK	3	5	done	Implementar o tratamento de falha da IA
+TASK	3	6	done	Construir o formulário com estado de carregamento
+TASK	3	7	done	Construir o bloco de sucesso com explicação e as 5 execuções
+TASK	3	8	done	Construir o bloco de erro de expressão inválida
+TASK	3	9	done	Construir o bloco de falha da IA e finalizar o acabamento visual
+TASK	3	10	done	Consolidar a suíte de testes do componente
+PHASE	4	done	1	pass pass pass pass	Gate de qualidade e fechamento do MVP
+TASK	4	1	done	Rodar Pint e corrigir toda a formatação
+TASK	4	2	done	Rodar Larastan e zerar os erros
+TASK	4	3	done	Rodar a suíte completa e o build de produção
+TASK	4	4	done	Percorrer os critérios de aceite das 6 user stories com chave real
+TASK	4	5	done	Verificar o comportamento de segurança em falha

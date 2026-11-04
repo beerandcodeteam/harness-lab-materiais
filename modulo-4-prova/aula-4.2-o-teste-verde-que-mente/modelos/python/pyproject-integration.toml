@@ -1,0 +1,8 @@
+# pyproject-integration.toml · aula 4.2 · tira o smoke real do comando do juiz (pytest).
+# Junte ao [tool.pytest.ini_options] do seu pyproject.toml. Se você já tem addopts,
+# acrescente o -m ao que existe. Daí em diante "pytest" e "pytest -q" pulam o smoke.
+# Para rodar só o smoke, antes do PR:  pytest -m integration
+# O -m da linha de comando vale mais que o do addopts (testado no pytest 9.2.0).
+[tool.pytest.ini_options]
+markers = ["integration: chamada real ao provedor, fora do comando do juiz"]
+addopts = "-m 'not integration'"

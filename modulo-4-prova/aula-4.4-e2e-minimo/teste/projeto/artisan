@@ -1,0 +1,5 @@
+#!/usr/bin/env php
+<?php
+// Projeto falso da sandbox da aula 4.4: só a forma de um projeto Laravel, sem framework.
+echo "projeto falso: não roda artisan\n";
+exit(1);

@@ -1,0 +1,169 @@
+{
+ "material": "material-de-apoio-aula-6.2.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 6.2",
+    "git add .claude/scripts/desfecho.sh",
+    "git commit -m \"chore: desfecho.sh da aula 6.2\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-6-a-entrega",
+    "F=$A/aula-6.2-os-3-desfechos/modelos/fixtures",
+    ".claude/scripts/desfecho.sh \"$F/run-entregou.tsv\"",
+    ".claude/scripts/desfecho.sh \"$F/run-falhou-g3/\" || echo \"exit $?\"",
+    ".claude/scripts/desfecho.sh \"$F/run-interrompido.tsv\" || echo \"exit $?\"",
+    ".claude/scripts/desfecho.sh \"$F/run-morto.tsv\" || echo \"exit $?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "R=$(ls -td .loop-logs/run-*/ | head -1)",
+    ".claude/scripts/desfecho.sh \"$R\" || echo \"exit $?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/desfecho.sh || echo \"exit $?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "pgrep -af \"[r]alph.sh\" || echo \"nenhum ralph vivo\"",
+    "cat .phases/.progress",
+    "ls -t .phases/logs | head -4",
+    "grep -h \"INCOMPLETE\" .phases/logs/*.verify-*.log"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin install diagnostico-operador@harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin install diagnostico-operador@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "E=$(git rev-parse --git-path info/exclude)",
+    "L=/.diagnostico-operador/",
+    "grep -qxF $L $E || echo $L >> $E",
+    "L=/diagnostico-operador.md",
+    "grep -qxF $L $E || echo $L >> $E",
+    "git status --short"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/diagnostico-operador depois"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> leia o verify log da fase e diga qual critério não se prova lendo"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/blob/main/modulo-6-a-entrega/aula-6.1-rodando-a-feature-alvo/README.md",
+   "teste": "",
+   "linhas": [
+    "export AVISO_CMD=.claude/scripts/aviso-env.sh",
+    "P=.spec/features/post-view-counter/PHASES.md",
+    ".claude/scripts/loop.sh \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/blob/main/modulo-5-loop/aula-5.3-avisa-quando-termina-ou-trava/README.md",
+   "teste": "",
+   "linhas": [
+    "P=.spec/features/post-view-counter/PHASES.md",
+    ".claude/scripts/ralph.sh --engine claude \"$P\""
+   ],
+   "motivo": ""
+  }
+ ]
+}

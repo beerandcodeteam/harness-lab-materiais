@@ -6,7 +6,7 @@
 #   ~/harness-lab-materiais/instalar.sh --lista    mostra o que cada aula instala
 #
 # Regras (nunca apaga nada seu):
-#   - arquivo que não existe: é criado (scripts .sh ganham chmod +x);
+#   - arquivo que não existe: é criado (scripts .sh e executáveis ganham chmod +x);
 #   - arquivo igual ao da aula: fica como está;
 #   - arquivo diferente: o seu fica intacto e o da aula vai para <arquivo>.harness-lab-novo;
 #   - .claude/settings.json que já existe: os hooks e as permissões da aula são somados
@@ -100,7 +100,7 @@ while IFS= read -r rel; do
     mkdir -p "$(dirname "$dst")"
     if [ ! -e "$dst" ]; then
         cp "$src" "$dst"
-        case "$rel" in *.sh) chmod +x "$dst" ;; esac
+        { case "$rel" in *.sh) true ;; *) [ -x "$src" ] ;; esac; } && chmod +x "$dst"
         echo "  ${verde}criado${fim}     $rel"; criados=$((criados + 1))
     elif cmp -s "$src" "$dst"; then
         echo "  igual      $rel"; iguais=$((iguais + 1))
@@ -109,7 +109,7 @@ while IFS= read -r rel; do
         echo "  ${verde}$r${fim}     $rel"; [ "$r" = "igual" ] && iguais=$((iguais + 1)) || criados=$((criados + 1))
     else
         cp "$src" "$dst.harness-lab-novo"
-        case "$rel" in *.sh) chmod +x "$dst.harness-lab-novo" ;; esac
+        { case "$rel" in *.sh) true ;; *) [ -x "$src" ] ;; esac; } && chmod +x "$dst.harness-lab-novo"
         echo "  ${amarelo}conflito${fim}   $rel  →  o da aula está em $rel.harness-lab-novo"; conflitos=$((conflitos + 1))
     fi
 done < <(cd "$ORIGEM" && find . -type f ! -name '.DS_Store' | sed 's|^\./||' | sort)

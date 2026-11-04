@@ -50,15 +50,19 @@ Dentro do Claude Code, os mesmos comandos funcionam com `/plugin marketplace add
 | `diagnostico-camadas` | Classifica as suas correções ao agente nas 4 camadas do harness (Regra, Trava, Prova, Loop) ou em falta de inteligência, e grava diagnostico-camadas.md com a contagem e por onde começar. Prática da aula 1.4 do Harness Lab. |
 | `diagnostico-operador` | Mede no seu histórico do Claude Code quem fez o trabalho andar: você (o Operador) ou o trilho. Skill /diagnostico-operador antes | depois | comparar | listar | projetos. Harness Lab, aula 1.1. |
 | `enxuto` | Harness Lab, aula 3.1: passa cada linha do CLAUDE.md no filtro "o agente descobriria isso lendo o código?", mede o que carrega e propõe a versão enxuta. |
+| `feature-alvo` | Escolhe no seu repositório a feature-alvo que o loop vai entregar: levanta candidatas reais, passa cada uma nas cinco peneiras (pequena, verificável, isolada, valor real, sem terceiro instável) e grava FEATURE-ALVO.md com 3 a 5 critérios de aceite em rascunho. Prática da aula 1.5 do Harness Lab. |
 | `skill-gatilho` | Harness Lab, aula 3.3: escreve a descrição de uma skill no padrão da Anthropic e confere o leque de skills do projeto (tamanho, nome, campos errados, skills gêmeas). |
 
 ## Aulas
 
 | Módulo | Tema | Aulas |
 |---|---|---|
-| [Módulo 1](modulo-1-o-operador-e-o-trilho/) | O Operador e o Trilho | [1.1](modulo-1-o-operador-e-o-trilho/aula-1.1-voce-virou-operador-do-agente/), [1.2](modulo-1-o-operador-e-o-trilho/aula-1.2-o-que-acontece-quando-voce-aperta-enter/), [1.3](modulo-1-o-operador-e-o-trilho/aula-1.3-por-que-o-agente-esquece-a-regra/), [1.4](modulo-1-o-operador-e-o-trilho/aula-1.4-as-4-camadas-do-harness/) |
+| [Módulo 1](modulo-1-o-operador-e-o-trilho/) | O Operador e o Trilho | [1.1](modulo-1-o-operador-e-o-trilho/aula-1.1-voce-virou-operador-do-agente/), [1.2](modulo-1-o-operador-e-o-trilho/aula-1.2-o-que-acontece-quando-voce-aperta-enter/), [1.3](modulo-1-o-operador-e-o-trilho/aula-1.3-por-que-o-agente-esquece-a-regra/), [1.4](modulo-1-o-operador-e-o-trilho/aula-1.4-as-4-camadas-do-harness/), [1.5](modulo-1-o-operador-e-o-trilho/aula-1.5-escolha-sua-feature-alvo/) |
 | [Módulo 2](modulo-2-trava/) | Trava: primeira vitória em 1 hora | [2.1](modulo-2-trava/aula-2.1-hooks-o-que-o-modelo-nao-decide/), [2.2](modulo-2-trava/aula-2.2-o-hook-que-roda-lint-e-teste/), [2.3](modulo-2-trava/aula-2.3-o-hook-que-bloqueia-comando-perigoso/), [2.4](modulo-2-trava/aula-2.4-como-nao-quebrar-seu-fluxo-com-hooks/) |
 | [Módulo 3](modulo-3-regra/) | Regra: o agente trabalha do seu jeito | [3.1](modulo-3-regra/aula-3.1-claude-md-enxuto/), [3.2](modulo-3-regra/aula-3.2-guidelines-do-seu-projeto/), [3.3](modulo-3-regra/aula-3.3-skills-conhecimento-sob-demanda/), [3.4](modulo-3-regra/aula-3.4-subagente-quando-usar/), [3.5](modulo-3-regra/aula-3.5-contexto-na-pratica/) |
+| [Módulo 4](modulo-4-prova/) | Prova: o teste é o juiz | [4.1](modulo-4-prova/aula-4.1-quem-decide-se-esta-pronto/), [4.2](modulo-4-prova/aula-4.2-o-teste-verde-que-mente/), [4.3](modulo-4-prova/aula-4.3-spec-com-criterio-de-aceite/), [4.4](modulo-4-prova/aula-4.4-e2e-minimo/) |
+| [Módulo 5](modulo-5-loop/) | Loop: ele pega a próxima tarefa sozinho | [5.1](modulo-5-loop/aula-5.1-o-script-do-loop/), [5.2](modulo-5-loop/aula-5.2-condicoes-de-parada/), [5.3](modulo-5-loop/aula-5.3-avisa-quando-termina-ou-trava/) |
+| [Módulo 6](modulo-6-a-entrega/) | A Entrega | [6.1](modulo-6-a-entrega/aula-6.1-rodando-a-feature-alvo/), [6.2](modulo-6-a-entrega/aula-6.2-os-3-desfechos/), [6.3](modulo-6-a-entrega/aula-6.3-revisando-o-pr-do-loop/) |
 
 ## Para quem mantém o repositório
 

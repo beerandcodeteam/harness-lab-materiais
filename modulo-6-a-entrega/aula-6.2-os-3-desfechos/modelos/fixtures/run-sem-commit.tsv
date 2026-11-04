@@ -1,0 +1,22 @@
+META	project	agenda-demo
+META	phase_total	2
+META	activity	
+META	cycle	1
+META	pid	297096
+META	engine	claude
+META	test_cmd	testes/motor-falso/teste-do-projeto
+META	phase_cur	2
+META	note	
+META	run	run-1103-115517
+META	ended	1793717717
+META	started	1793717717
+META	last_error	
+META	gate	
+META	cycle_max	3
+META	status	finished
+META	input	.spec/features/agenda-ics/PHASES.md
+PHASE	1	done	1	pass pass pass pass	Gerador do texto do .ics
+TASK	1	1	done	T01 Gerador do VEVENT de dia inteiro
+TASK	1	2	done	T02 Escape de vírgula e ponto e vírgula no SUMMARY
+PHASE	2	done	1	pass pass pass pass	Rota que entrega o arquivo
+TASK	2	1	done	T03 Rota /eventos/{slug}/agenda.ics

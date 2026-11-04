@@ -1,0 +1,12 @@
+<!-- phpunit-groups.xml · aula 4.2 · tira o smoke real do comando do juiz.
+     Cole o bloco <groups> dentro de <phpunit> no seu phpunit.xml, logo depois de </testsuites>.
+     Daí em diante php artisan test, vendor/bin/sail test e vendor/bin/pest pulam o grupo
+     integration, inclusive quando quem roda é o loop. Para rodar só o smoke, antes do PR,
+     passe a opção group=integration na linha de comando (com os dois hífens na frente, como
+     está no README da aula). Ela vale mais que o exclude deste bloco (testado no Pest 5.3.5).
+     Comentário de XML não aceita dois hífens seguidos: por isso o comando não está escrito aqui. -->
+<groups>
+    <exclude>
+        <group>integration</group>
+    </exclude>
+</groups>

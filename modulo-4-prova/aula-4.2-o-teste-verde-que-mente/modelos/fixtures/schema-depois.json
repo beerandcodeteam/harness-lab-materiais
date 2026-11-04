@@ -1,0 +1,94 @@
+{
+    "additionalProperties": false,
+    "properties": {
+        "product": {
+            "properties": {
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "category": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "estimated_price_range": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "category",
+                "estimated_price_range"
+            ],
+            "additionalProperties": false
+        },
+        "summary": {
+            "type": "string"
+        },
+        "similar_products": {
+            "maxItems": 5,
+            "items": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "reason": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "reason"
+                ],
+                "additionalProperties": false
+            },
+            "type": "array"
+        },
+        "recommendation": {
+            "properties": {
+                "decision": {
+                    "enum": [
+                        "buy",
+                        "wait_for_offer",
+                        "do_not_buy"
+                    ],
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "reason": {
+                    "type": "string"
+                }
+            },
+            "type": [
+                "object",
+                "null"
+            ],
+            "required": [
+                "decision",
+                "reason"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "type": "object",
+    "required": [
+        "product",
+        "summary",
+        "similar_products",
+        "recommendation"
+    ]
+}

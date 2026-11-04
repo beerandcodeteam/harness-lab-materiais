@@ -1,0 +1,181 @@
+{
+ "material": "material-de-apoio-aula-5.1.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "/plugin install bc-harness@beer-and-code",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "C=~/.claude/plugins/cache/beer-and-code/bc-harness",
+    "bash \"$(ls -d $C/*/scripts | sort -V | tail -n 1)/test-ralph.sh\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-5-loop/aula-5.1-o-script-do-loop",
+    "mkdir -p ~/harness-lab-sandbox",
+    "cd ~/harness-lab-sandbox",
+    "cp -r $A/modelos/teste $A/modelos/motor-falso $A/modelos/pedido-*.md .",
+    "bash teste/testa-loop-minimo.sh $A/modelos/loop-minimo.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "cd ~/harness-lab-sandbox",
+    "bash teste/testa-loop-minimo.sh"
+   ],
+   "motivo": "testa o loop-minimo.sh que o Claude escreveu na sessão do aluno; o verificar.sh roda este comando com o de referência no lugar"
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~/harness-lab-sandbox",
+    "grep '^> ' pedido-gates.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "cd ~/harness-lab-sandbox",
+    "bash teste/testa-loop-com-gates.sh ./loop-com-gates.sh"
+   ],
+   "motivo": "testa o loop-com-gates.sh que o Claude escreveu na sessão do aluno; o verificar.sh roda este comando com o de referência no lugar"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git branch --show-current",
+    "git switch -c feat/agenda-ics"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 5.1",
+    "git add .claude/scripts",
+    "git commit -m \"harness: scripts do loop\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "P=$(ls -t .spec/features/*/PHASES.md | head -n 1)",
+    "echo \"$P\"",
+    ".claude/scripts/confere-phases.sh \"$P\"",
+    ".claude/scripts/loop.sh --checa \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-5-loop/aula-5.1-o-script-do-loop",
+    "P=$(ls -t .spec/features/*/PHASES.md | head -n 1)",
+    "git switch -c ensaio-motor-falso",
+    "CLAUDE_REAL=$A/modelos/motor-falso/claude .claude/scripts/loop.sh \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git switch -",
+    "git branch -D ensaio-motor-falso",
+    "rm -rf .phases"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "P=$(ls -t .spec/features/*/PHASES.md | head -n 1)",
+    ".claude/scripts/loop.sh \"$P\""
+   ],
+   "motivo": "chama o claude de verdade: gasta token e precisa do login da assinatura"
+  }
+ ]
+}

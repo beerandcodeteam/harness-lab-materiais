@@ -1,0 +1,4 @@
+# .claude/aceite.txt · testes de aceite da feature-alvo (Módulo 4)
+# Um caminho por linha, relativo à raiz. O agente só pode tirar o marcador de pendente.
+tests/Feature/AgendaIcsTest.php
+tests/Feature/AgendaIcsE2ETest.php

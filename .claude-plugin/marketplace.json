@@ -58,6 +58,15 @@
       }
     },
     {
+      "name": "feature-alvo",
+      "source": "./plugins/feature-alvo",
+      "description": "Escolhe no seu repositório a feature-alvo que o loop vai entregar: levanta candidatas reais, passa cada uma nas cinco peneiras (pequena, verificável, isolada, valor real, sem terceiro instável) e grava FEATURE-ALVO.md com 3 a 5 critérios de aceite em rascunho. Prática da aula 1.5 do Harness Lab.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Beer and Code"
+      }
+    },
+    {
       "name": "skill-gatilho",
       "source": "./plugins/skill-gatilho",
       "description": "Harness Lab, aula 3.3: escreve a descrição de uma skill no padrão da Anthropic e confere o leque de skills do projeto (tamanho, nome, campos errados, skills gêmeas).",

@@ -1,0 +1,132 @@
+{
+ "material": "material-de-apoio-aula-4.1.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 4.1"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "bash .claude/scripts/qual-comando.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://pestphp.com/docs/installation",
+   "teste": "",
+   "linhas": [
+    "LOOP_TEST_CMD=\"./vendor/bin/pest\" bash .claude/scripts/qual-comando.sh",
+    "# Rails: LOOP_TEST_CMD=\"bundle exec rspec\" na frente"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "bash .claude/scripts/qual-comando.sh --rodar"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "bash .claude/scripts/qual-comando.sh --rodar || echo \"vermelho: $?\"",
+    "git status --short"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "grep -n \"Testes:\" CLAUDE.md",
+    "grep -n \"## Pronto\" CLAUDE.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin validate .claude/agents"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> @agent-juiz confira os critérios do FEATURE-ALVO.md contra o código"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> rode o @agent-juiz de novo com model opus e compare os vereditos"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 3.4",
+    "A=$(echo ~/harness-lab-materiais/modulo-4-prova/aula-4.1-*)",
+    "cp \"$A/modelos/juiz-que-roda-teste.md\" .claude/agents/juiz.md"
+   ],
+   "motivo": ""
+  }
+ ]
+}

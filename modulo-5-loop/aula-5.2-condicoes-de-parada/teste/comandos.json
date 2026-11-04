@@ -1,0 +1,168 @@
+{
+ "material": "material-de-apoio-aula-5.2.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git branch --show-current",
+    "git switch -c feat/feature-alvo"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 5.2"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git add .claude/scripts",
+    "git diff --cached --quiet || git commit -m \"harness: freios do loop\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "P=$(ls -t .spec/features/*/PHASES.md | head -1)",
+    "echo \"$P\"",
+    ".claude/scripts/loop.sh --checa \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "P=$(ls -t .spec/features/*/PHASES.md | head -1)",
+    "ANTHROPIC_API_KEY=teste .claude/scripts/loop.sh --checa \"$P\" || true"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "P=$(ls -t .spec/features/*/PHASES.md | head -1)",
+    "LOOP_BUDGET_USD=20 MAX_CICLOS=2 .claude/scripts/loop.sh --checa \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "S=~/harness-lab-materiais/modulo-5-loop/aula-5.2-condicoes-de-parada/lab",
+    "export DEMO_DIR=$HOME/harness-lab-sandbox",
+    "F=\"MOTOR_CENARIO=pendura LOOP_TIMEOUT=20s MAX_CICLOS=2\"",
+    "env $F bash $S/testes/demo.sh || true"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "R=$(ls -td ~/harness-lab-sandbox/run.*/repo-exemplo | head -1)",
+    "cat $R/.loop-logs/run-*/resumo.txt",
+    "grep -A3 \"Motivo da falha\" $R/.phases/prompts/phase-01.cycle-2.txt"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd \"$(ls -td ~/harness-lab-sandbox/run.*/repo-exemplo | head -1)\"",
+    "cd \"$(ls -td .loop-logs/*/logs | head -1)\"",
+    "F='fromjson?|select(.type==\"result\")'",
+    "C='[.num_turns,.total_cost_usd,(.duration_ms/6e4|round)]'",
+    "for f in *.cycle-*.log; do echo \"$f $(jq -cR \"$F|$C\" \"$f\")\"; done"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "S=~/harness-lab-materiais/modulo-5-loop/aula-5.2-condicoes-de-parada/lab",
+    "env MOTOR_CENARIO=pendura LOOP_TIMEOUT=5m bash $S/testes/demo.sh",
+    "pgrep -af -- --max-budget-usd"
+   ],
+   "motivo": "Precisa de alguém apertando Ctrl-C no meio do run. O testa-loop.sh do passo seguinte simula o mesmo Ctrl-C (SIGINT no grupo de processos) e confere que loop, sessão e vigia saíram."
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "S=~/harness-lab-materiais/modulo-5-loop/aula-5.2-condicoes-de-parada/lab",
+    "C=$PWD/.claude/scripts",
+    "SHIM=$C/shim/claude bash $S/testes/testa-loop.sh $C/loop.sh"
+   ],
+   "motivo": ""
+  }
+ ]
+}

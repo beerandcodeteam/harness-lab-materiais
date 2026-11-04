@@ -1,0 +1,204 @@
+{
+ "material": "material-de-apoio-aula-6.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 4.2",
+    "~/harness-lab-materiais/instalar.sh 5.3",
+    "~/harness-lab-materiais/instalar.sh 6.2"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 6.3",
+    "ls .claude/scripts"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "M=~/harness-lab-materiais/modulo-6-a-entrega",
+    "bash \"$M/aula-6.3-revisando-o-pr-do-loop/modelos/ensaio/ensaio.sh\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Instale o GitHub CLI; sem sudo, use o binário oficial em ~/.local/bin"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://cli.github.com/manual/gh_auth_login",
+   "teste": "",
+   "linhas": [
+    "gh --version",
+    "gh auth login",
+    "gh auth status"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-6-a-entrega/aula-6.3-revisando-o-pr-do-loop",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/revisa-loop.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://git-scm.com/docs/git-cherry-pick",
+   "teste": "",
+   "linhas": [
+    "git log --oneline origin/main..main",
+    "git switch -c revisao-loop origin/main",
+    "git cherry-pick <sha-fase-1> <sha-fase-2> <sha-fase-3>"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-6-a-entrega/aula-6.3-revisando-o-pr-do-loop",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/stack-pr.sh",
+    ".claude/scripts/stack-pr.sh --criar"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://docs.github.com/en/pull-requests/get-started/stacked-prs-quickstart",
+   "teste": "",
+   "linhas": [
+    "gh extension install github/gh-stack"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-6-a-entrega/aula-6.3-revisando-o-pr-do-loop",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/loop-e-stack.sh .spec/features/<slug>/PHASES.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin install diagnostico-operador@harness-lab"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/diagnostico-operador depois",
+    "/diagnostico-operador comparar"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/diagnostico-operador depois .loop-logs/<run>/logs"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-6-a-entrega/aula-6.3-revisando-o-pr-do-loop",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/pacote-prova.sh"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://www.gnu.org/software/coreutils/manual/html_node/cp-invocation.html",
+   "teste": "",
+   "linhas": [
+    "mkdir -p .loop-logs/manual",
+    "cp -p .phases/state/run.tsv .loop-logs/manual/",
+    "cp -rp .phases/logs .phases/prompts .loop-logs/manual/",
+    "x=$(git rev-parse --git-path info/exclude)",
+    "mkdir -p \"$(dirname \"$x\")\"",
+    "grep -qxF '/.loop-logs/' \"$x\" || echo '/.loop-logs/' >> \"$x\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/code-review --comment 12"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://docs.github.com/en/pull-requests/reference/stacked-prs-cli-commands",
+   "teste": "",
+   "linhas": [
+    "gh pr ready 12",
+    "gh stack merge 14"
+   ],
+   "motivo": ""
+  }
+ ]
+}

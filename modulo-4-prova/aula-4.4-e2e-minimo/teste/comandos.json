@@ -1,0 +1,173 @@
+{
+ "material": "material-de-apoio-aula-4.4.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 4.4"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://pestphp.com/docs/browser-testing",
+   "teste": "",
+   "linhas": [
+    "composer require pestphp/pest-plugin-browser --dev",
+    "npm install playwright@latest",
+    "npx playwright install"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://playwright.dev/docs/intro",
+   "teste": "",
+   "linhas": [
+    "npm init playwright@latest"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://playwright.dev/python/docs/intro",
+   "teste": "",
+   "linhas": [
+    "pip install pytest-playwright",
+    "playwright install"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.4-e2e-minimo/modelos",
+    "mkdir -p tests/Browser",
+    "cp \"$A/pest-browser/SmokeTest.php\" tests/Browser/",
+    "cat \"$A/pest-browser/gitignore.exemplo\" >> .gitignore"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.4-e2e-minimo/modelos",
+    "mkdir -p tests/e2e",
+    "cp \"$A/playwright/smoke.spec.ts\" tests/e2e/"
+   ],
+   "motivo": "A sandbox do material é um projeto Laravel; o mesmo cp roda num projeto Node falso dentro do teste/verificar.sh."
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "A=~/harness-lab-materiais/modulo-4-prova/aula-4.4-e2e-minimo/modelos",
+    "mkdir -p tests/e2e",
+    "cp \"$A/pytest-playwright/test_smoke_e2e.py\" tests/e2e/"
+   ],
+   "motivo": "A sandbox do material é um projeto Laravel; o mesmo cp roda num projeto Python falso dentro do teste/verificar.sh."
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "python3 .claude/scripts/confere-e2e.py"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/framework/docs/sail",
+   "teste": "",
+   "linhas": [
+    "vendor/bin/sail test --filter=Smoke"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://laravel.com/framework/docs/sail",
+   "teste": "",
+   "linhas": [
+    "vendor/bin/sail test --filter=E2E",
+    "vendor/bin/sail test"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://playwright.dev/docs/running-tests",
+   "teste": "",
+   "linhas": [
+    "npx playwright test",
+    "npm test"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://playwright.dev/python/docs/running-tests",
+   "teste": "",
+   "linhas": [
+    "pytest tests/e2e",
+    "pytest"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "python3 .claude/scripts/confere-e2e.py",
+    "git status --short",
+    "git add -A",
+    "git commit -m \"test: E2E do fluxo principal da feature-alvo\""
+   ],
+   "motivo": ""
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+# .claude/aceite.txt · testes de aceite da feature-alvo (aula 4.2)
+# Um caminho por linha, relativo à raiz. Aceita curinga.
+# O agente só pode tirar o marcador de pendente destes arquivos.
+tests/Feature/CadastroEmailDuplicadoTest.php
+tests/Feature/Ai/SchemaEstritoTest.php
+tests/Browser/CadastroE2ETest.php

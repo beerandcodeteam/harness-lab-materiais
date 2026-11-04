@@ -1,0 +1,7 @@
+{
+    "name": "aluno/blog",
+    "description": "Projeto de teste da aula 5.2 do Harness Lab",
+    "require": {
+        "php": "^8.3"
+    }
+}

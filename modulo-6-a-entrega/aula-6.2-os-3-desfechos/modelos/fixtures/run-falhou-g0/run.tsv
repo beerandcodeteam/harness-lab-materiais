@@ -1,0 +1,22 @@
+META	project	agenda-demo
+META	phase_total	2
+META	activity	
+META	cycle	3
+META	pid	296501
+META	engine	claude
+META	test_cmd	testes/motor-falso/teste-do-projeto
+META	phase_cur	1
+META	note	
+META	run	run-1103-115513
+META	ended	1793717716
+META	started	1793717713
+META	last_error	O engine terminou sem emitir um resultado. Ultimas linhas do output:
+META	gate	
+META	cycle_max	3
+META	status	failed
+META	input	.spec/features/agenda-ics/PHASES.md
+PHASE	1	failed	3	fail pending pending pending	Gerador do texto do .ics
+TASK	1	1	running	T01 Gerador do VEVENT de dia inteiro
+TASK	1	2	pending	T02 Escape de vírgula e ponto e vírgula no SUMMARY
+PHASE	2	pending	0	pending pending pending pending	Rota que entrega o arquivo
+TASK	2	1	pending	T03 Rota /eventos/{slug}/agenda.ics

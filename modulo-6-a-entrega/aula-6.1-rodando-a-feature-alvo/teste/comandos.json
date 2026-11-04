@@ -1,0 +1,232 @@
+{
+ "material": "material-de-apoio-aula-6.1.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code",
+    "claude plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "claude plugin install boostify@harness-lab",
+    "claude plugin list"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "/plugin install bc-harness@beer-and-code",
+    "/plugin marketplace add beerandcodeteam/harness-lab-materiais",
+    "/plugin install boostify@harness-lab",
+    "/reload-plugins"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls FEATURE-ALVO.md",
+    "wc -l CLAUDE.md AGENTS.md",
+    "ls docs/agents",
+    "ls .spec/features",
+    "ls .spec/features/post-view-counter"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace update harness-lab",
+    "claude plugin install feature-alvo@harness-lab",
+    "claude plugin install enxuto@harness-lab",
+    "~/harness-lab-materiais/instalar.sh 4.3"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/feature-alvo:feature-alvo",
+    "/enxuto:enxugar-claude-md",
+    "/boostify:boostify",
+    "/plan FEATURE-ALVO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/beer-and-code-harness",
+   "teste": "",
+   "linhas": [
+    "/bc-harness:ai-context --adopt",
+    "/bc-harness:plan FEATURE-ALVO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git switch -c feat/post-view-counter",
+    "~/harness-lab-materiais/instalar.sh 6.1",
+    "~/harness-lab-materiais/instalar.sh 5.3",
+    "~/harness-lab-materiais/instalar.sh 4.2",
+    "D=.claude",
+    "[ -f $D/aceite.txt ] || cp $D/aceite.exemplo.txt $D/aceite.txt",
+    "git status --short"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "X=$(git rev-parse --git-path info/exclude)",
+    "echo '/.diagnostico-operador/' >> \"$X\"",
+    "echo '/diagnostico-operador.md' >> \"$X\"",
+    "echo '/.loop-logs/' >> \"$X\"",
+    "grep -qxF '__pycache__/' .gitignore || echo '__pycache__/' >> .gitignore"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git add .gitignore .claude/scripts .spec",
+    "git add .claude/hooks .claude/settings.json .claude/aceite*.txt",
+    "git commit -m \"chore: kit do loop do Harness Lab\"",
+    "git status --short"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "P=.spec/features/post-view-counter/PHASES.md",
+    ".claude/scripts/loop.sh --checa \"$P\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=$(echo ~/harness-lab-materiais/modulo-5-loop/aula-5.3-*)",
+    "E=~/.config/harness-lab/aviso.env",
+    "mkdir -p ~/.config/harness-lab",
+    "[ -f \"$E\" ] || cp \"$A/modelos/aviso.env.exemplo\" \"$E\"",
+    "chmod 600 \"$E\"",
+    "ln -sfn \"$E\" .claude/scripts/.env",
+    "git check-ignore -v .claude/scripts/.env"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "AVISO_DRY=1 .claude/scripts/aviso-env.sh \"teste do loop\"",
+    ".claude/scripts/aviso-env.sh \"loop: teste do aviso antes de soltar\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "tmux new -s loop"
+   ],
+   "motivo": "abre uma sessão interativa do tmux"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "export AVISO_CMD=.claude/scripts/aviso-env.sh",
+    "P=.spec/features/post-view-counter/PHASES.md",
+    ".claude/scripts/loop.sh \"$P\""
+   ],
+   "motivo": "roda o claude de verdade e gasta da sua assinatura; o teste/verificar.sh roda o mesmo loop.sh com um claude falso"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "BC=~/.claude/plugins/cache/beer-and-code/bc-harness",
+    "W=$(ls -dv $BC/*/scripts | tail -1)",
+    "bash \"$W/ralph-watch.sh\" ."
+   ],
+   "motivo": "painel interativo, fica na tela até a tecla q; o verificar.sh roda o mesmo painel com --once depois do run falso"
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "pula",
+   "linhas": [
+    "P=.spec/features/post-view-counter/PHASES.md",
+    "./.claude/scripts/ralph.sh --engine claude \"$P\""
+   ],
+   "motivo": "roda o claude de verdade e gasta da sua assinatura; o verificar.sh confere o gate da árvore suja deste ralph, como no vídeo"
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "material": "material-de-apoio-aula-5.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 5.3"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git add .claude/scripts",
+    "git commit -m \"harness: aviso do loop (aula 5.3)\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=$(echo ~/harness-lab-materiais/modulo-5-loop/aula-5.3-*)",
+    "E=~/.config/harness-lab/aviso.env",
+    "L=.claude/scripts/.env",
+    "mkdir -p ~/.config/harness-lab",
+    "[ -L \"$L\" ] || [ ! -f \"$L\" ] || [ -f \"$E\" ] || mv \"$L\" \"$E\"",
+    "[ -f \"$E\" ] || cp \"$A/modelos/aviso.env.exemplo\" \"$E\"",
+    "chmod 600 \"$E\"",
+    "[ -e \"$L\" ] || ln -sfn \"$E\" \"$L\"",
+    "git check-ignore -v \"$L\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "AVISO_DRY=1 .claude/scripts/aviso-env.sh \"teste do loop\"",
+    ".claude/scripts/aviso-env.sh \"teste do loop: chegou?\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=$(echo ~/harness-lab-materiais/modulo-5-loop/aula-5.3-*)",
+    "D=$(mktemp -d)",
+    "mkdir -p \"$D/.phases/state\"",
+    "cp \"$A/modelos/run-morto.tsv\" \"$D/.phases/state/run.tsv\"",
+    "LOOP_INICIO=0 AVISO_DRY=1 \"$PWD/.claude/scripts/vigia.sh\" \"$D\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "A=$(echo ~/harness-lab-materiais/modulo-5-loop/aula-5.3-*)",
+    "git switch -c ensaio-aviso",
+    "cp \"$A/modelos/ENSAIO-AVISO.md\" ."
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git add ENSAIO-AVISO.md",
+    "git commit -m \"ensaio do aviso\"",
+    "export AVISO_CMD=.claude/scripts/aviso-env.sh",
+    ".claude/scripts/loop.sh --checa ENSAIO-AVISO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-5-loop/aula-5.3-avisa-quando-termina-ou-trava",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/loop.sh ENSAIO-AVISO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/harness-lab-materiais/tree/main/modulo-5-loop/aula-5.3-avisa-quando-termina-ou-trava",
+   "teste": "",
+   "linhas": [
+    ".claude/scripts/ralph.sh --engine claude ENSAIO-AVISO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git switch -",
+    "git branch -D ensaio-aviso"
+   ],
+   "motivo": ""
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Sail falso do projeto de teste da aula 6.1. Nada de Docker:
+#   sail ps    responde "Up" (ou "Sail is not running." com SAIL_FALSO_PARADO=1)
+#   sail test  roda a Prova do exemplo: cada src/fase-N.txt precisa dizer "ok"
+case "${1:-}" in
+  ps)
+    if [ "${SAIL_FALSO_PARADO:-0}" = 1 ]; then echo "Sail is not running."; exit 1; fi
+    echo "NAME                     IMAGE           STATUS"
+    echo "projeto-laravel.test-1   sail-8.4/app    Up 2 minutes" ;;
+  up) echo "sail falso: nada para subir" ;;
+  test)
+    falhas=0
+    for f in src/fase-*.txt; do
+      [ -e "$f" ] || continue
+      if [ "$(cat "$f")" != ok ]; then echo "FALHOU: $f diz '$(cat "$f")'"; falhas=1; fi
+    done
+    [ "$falhas" -eq 0 ] && echo "Tests: todos verdes (sail falso)"
+    exit "$falhas" ;;
+  *) echo "sail falso: comando não suportado: $*" >&2; exit 64 ;;
+esac

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# motor-falso/claude · aulas 5.1 a 5.3 · um "claude" que não gasta token
+#
+# Adaptado do mock do scripts/test-ralph.sh do bc-harness 0.2.0. Aceita:
+#   - a chamada do núcleo da 5.1:  claude -p "<prompt>" --dangerously-skip-permissions
+#   - a sessão de implementação do ralph:  claude --dangerously-skip-permissions -p "<prompt>" --output-format stream-json --verbose
+#   - a sessão verificadora do ralph (prompt começa com RALPH_VERIFY): uma linha
+#     "TASK n: DONE|INCOMPLETE" por checkbox da fase
+# Ignora --max-budget-usd, --model e --allowedTools (o shim e o ralph passam).
+#
+# Na implementação ele "escreve código": cria src/fase-N.txt com "ok" (ou
+# "quebrado", para a Prova reprovar). A Prova do repositório de exemplo é um
+# test.sh que falha se algum src/fase-*.txt diz "quebrado".
+#
+# MOTOR_CENARIO:
+#   ok             escreve certo, verificador confirma tudo
+#   falha-uma-vez  a 2a sessão de implementação escreve "quebrado"; as outras, certo
+#   nunca-passa    toda sessão escreve "quebrado"
+#   incompleta     escreve certo, mas o verificador sempre diz TASK 1: INCOMPLETE
+#   pendura        a sessão de implementação nunca termina (para testar o timeout)
+#   sem-resultado  escreve, mas sai sem a linha de resultado do stream-json (gate 0)
+#
+# Estado (contadores, prompts recebidos) em .git/motor-falso/ do repositório
+# atual, fora da árvore de trabalho: não suja o git status. MOTOR_ESTADO muda o lugar.
+set -uo pipefail
+
+[ -t 0 ] || cat > /dev/null    # o claude -p real lê o stdin quando não é TTY
+
+cenario="${MOTOR_CENARIO:-ok}"
+estado="${MOTOR_ESTADO:-$(git rev-parse --absolute-git-dir 2>/dev/null || echo "${TMPDIR:-/tmp}")/motor-falso}"
+mkdir -p "$estado"
+
+{ printf '%s' "$*" | tr '\n' ' ' | head -c 200; echo; } >> "$estado/argumentos.txt"   # os testes conferem as flags do shim
+prompt=""; formato=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -p|--print) prompt="${2:-}"; shift 2 ;;
+    --output-format) formato="${2:-}"; shift 2 ;;
+    --model|--allowedTools|--max-budget-usd|--max-turns|--tools|--permission-mode) shift 2 ;;
+    *) shift ;;
+  esac
+done
+
+conta() { local f="$estado/$1" n=0; [ -f "$f" ] && n=$(cat "$f"); n=$((n + 1)); echo "$n" > "$f"; echo "$n"; }
+
+# --- sessão verificadora --------------------------------------------------------
+if [ "${prompt%%$'\n'*}" = "RALPH_VERIFY" ]; then
+  n=$(conta verificacoes)
+  printf '%s\n' "$prompt" > "$estado/verificacao-$n.txt"
+  tasks=$(grep -cE '^[[:space:]]*- \[[ xX]\]' <<<"$prompt" || true)
+  feito=0; compgen -G "src/fase-*.txt" > /dev/null && feito=1
+  for ((i = 1; i <= tasks; i++)); do
+    if [ "$feito" -eq 0 ]; then echo "TASK $i: INCOMPLETE: nenhum código encontrado"
+    elif [ "$cenario" = "incompleta" ] && [ "$i" -eq 1 ]; then echo "TASK $i: INCOMPLETE: o critério de aceite não tem teste"
+    else echo "TASK $i: DONE"; fi
+  done
+  exit 0
+fi
+
+# --- sessão de implementação -------------------------------------------------------
+n=$(conta implementacoes)
+printf '%s\n' "$prompt" > "$estado/prompt-$n.txt"
+fase=$(grep -oE 'Phase [0-9]+' <<<"$prompt" | head -1 | grep -oE '[0-9]+' || true)
+fase="${fase:-$n}"
+
+[ "$formato" = "stream-json" ] && echo '{"type":"system","subtype":"init","session_id":"motor-falso"}'
+
+if [ "$cenario" = "pendura" ]; then
+  echo "$$" > "$estado/pendurado"
+  while :; do sleep 1; done
+fi
+
+conteudo="ok"
+[ "$cenario" = "nunca-passa" ] && conteudo="quebrado"
+[ "$cenario" = "falha-uma-vez" ] && [ "$n" -eq 2 ] && conteudo="quebrado"
+mkdir -p src
+echo "$conteudo" > "src/fase-$fase.txt"
+
+[ "$cenario" = "sem-resultado" ] && exit 0
+if [ "$formato" = "stream-json" ]; then
+  echo '{"type":"result","subtype":"success","is_error":false,"result":"fase implementada (motor falso)","total_cost_usd":0}'
+else
+  echo "fase $fase implementada (motor falso)"
+fi
+exit 0

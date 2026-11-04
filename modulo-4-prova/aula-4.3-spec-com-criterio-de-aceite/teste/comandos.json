@@ -1,0 +1,127 @@
+{
+ "material": "material-de-apoio-aula-4.3.html",
+ "gerado_por": "_materiais/kit/validar.py --exportar",
+ "blocos": [
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "cd ~",
+    "git clone https://github.com/beerandcodeteam/harness-lab-materiais"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "git -C ~/harness-lab-materiais pull"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "~/harness-lab-materiais/instalar.sh 4.3"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls .claude/commands .claude/agents .claude/scripts",
+    "claude plugin validate .claude/commands",
+    "claude plugin validate .claude/agents"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "claude-cli",
+   "onde": "home",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "claude plugin marketplace add beerandcodeteam/beer-and-code-harness",
+    "claude plugin install bc-harness@beer-and-code"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/beer-and-code-harness",
+   "teste": "",
+   "linhas": [
+    "/bc-harness:ai-context --adopt"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "M=~/harness-lab-materiais/modulo-4-prova",
+    "E=$M/aula-4.3-spec-com-criterio-de-aceite/modelos/exemplo-cadastro",
+    ".claude/scripts/confere-phases.sh --sem-aceite \"$E/PHASES.md\""
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "/plan FEATURE-ALVO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "stack",
+   "onde": "",
+   "fonte": "https://github.com/beerandcodeteam/beer-and-code-harness",
+   "teste": "",
+   "linhas": [
+    "/bc-harness:plan FEATURE-ALVO.md"
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "sessao",
+   "onde": "",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "> Confirmo. Conteúdo da SPEC em português.",
+    "> Aprovo, mas tenho dúvidas: rode o clarifier antes de seguir.",
+    "> Re-delegue ao planner. Não edite o PHASES à mão."
+   ],
+   "motivo": ""
+  },
+  {
+   "tipo": "shell",
+   "onde": "projeto",
+   "fonte": "",
+   "teste": "",
+   "linhas": [
+    "ls .spec/features",
+    "C=.claude/scripts/confere-phases.sh",
+    "for p in .spec/features/*/PHASES.md; do \"$C\" \"$p\"; done",
+    "git status --short"
+   ],
+   "motivo": ""
+  }
+ ]
+}

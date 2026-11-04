@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# .claude/scripts/shim/claude · teto de tempo e de gasto por sessão, sem editar o ralph
+#
+# Aula 5.2. O loop.sh resolve o claude de verdade em CLAUDE_REAL e põe esta pasta
+# na frente do PATH. O ralph chama "claude" pelo PATH e cai aqui, nas duas
+# sessões (implementação e juiz). LOOP_TIMEOUT padrão 40m; LOOP_BUDGET_USD padrão 5.
+# --max-budget-usd é estimativa do cliente, por sessão, e pode passar do teto.
+#
+# Por que "&" + trap + wait, e não "exec timeout ...": o timeout roda num grupo
+# de processos próprio e não recebe o Ctrl-C do terminal. Aqui o shim recebe o
+# Ctrl-C e repassa TERM ao timeout, que repassa à sessão. "timeout --foreground"
+# também deixaria o Ctrl-C passar, mas no estouro não mata os filhos da sessão.
+: "${CLAUDE_REAL:?CLAUDE_REAL vazio: rode pelo loop.sh, que resolve o claude de verdade antes de mexer no PATH}"
+timeout -k 60 "${LOOP_TIMEOUT:-40m}" "$CLAUDE_REAL" --max-budget-usd "${LOOP_BUDGET_USD:-5}" "$@" &
+pid=$!
+trap 'kill -TERM "$pid" 2>/dev/null' INT TERM HUP
+wait "$pid"; rc=$?
+if [ "$rc" -gt 128 ] && kill -0 "$pid" 2>/dev/null; then wait "$pid"; rc=$?; fi
+exit "$rc"
